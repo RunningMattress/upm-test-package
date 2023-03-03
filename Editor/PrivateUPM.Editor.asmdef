@@ -1,0 +1,18 @@
+{
+    "name": "PrivateUPM.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3c068c95597f88545a4fdcbe06ef99df"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

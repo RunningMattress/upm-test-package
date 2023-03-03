@@ -1,0 +1,33 @@
+name: Publish Package
+on: 
+  push:
+    branches:
+      - main
+
+permissions:
+  packages: write
+  contents: write
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name:  'Automated Version Bump'
+      uses:  'phips28/gh-action-bump-version@master'
+      env:
+        GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+      with:
+        commit-message: 'CI: bumps version to {{version}} [skip ci]'
+
+    # Setup .npmrc file to publish to GitHub Packages
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@octocat' # Defaults to the user or organization that owns the workflow file
+    - run: npm publish
+      working-directory: ''
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
