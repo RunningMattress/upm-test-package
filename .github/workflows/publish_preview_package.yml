@@ -31,6 +31,13 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ steps.previoustag.outputs.tag }}
+    
+    - name: Commit CHANGELOG.md
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        branch: main
+        commit_message: 'docs: update CHANGELOG.md for ${{ steps.previoustag.outputs.tag }} [skip ci]'
+        file_pattern: CHANGELOG.md
 
     # Setup .npmrc file to publish to GitHub Packages
     - uses: actions/setup-node@v1
