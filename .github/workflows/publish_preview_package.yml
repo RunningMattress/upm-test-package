@@ -61,3 +61,5 @@ jobs:
         body: ${{ steps.changelog.outputs.changes }}
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ steps.previoustag.outputs.tag }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+
