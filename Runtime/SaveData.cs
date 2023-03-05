@@ -29,4 +29,19 @@ public class SaveData
 
         return true;
     }
+    
+    public static string Load()
+    {
+        try
+        {
+            //Load data method stub
+        }
+        catch
+        {
+            Console.WriteLine("Error");
+            return null;
+        }
+
+        return "";
+    }
 }
