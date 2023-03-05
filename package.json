@@ -1,7 +1,7 @@
 {
     "name": "com.runningmattress.private_upm",
     "displayName": "Private UPM Package",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "unity": "2022.2",
     "description": "A test package created for a medium article",
     "keywords": [],
