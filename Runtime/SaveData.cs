@@ -14,4 +14,19 @@ public class SaveData
         }
         set { m_Instance = value; }
     }
+
+    public static bool Save(string data)
+    {
+        try
+        {
+            //Save data method stub
+        }
+        catch
+        {
+            Console.WriteLine("Error");
+            return false;
+        }
+
+        return true;
+    }
 }
