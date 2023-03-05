@@ -19,7 +19,25 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
       with:
-        commit-message: 'CI: bumps version to {{version}} [skip ci]'
+        commit-message: ci: bumps version to {{version}} [skip ci]'
+
+    - name: 'Get Previous tag'
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@v1"     
+    
+    - name: Update CHANGELOG
+      id: changelog
+      uses: requarks/changelog-action@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: ${{ steps.previoustag.outputs.tag }}
+    
+    - name: Commit CHANGELOG.md
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        branch: main
+        commit_message: 'docs: update CHANGELOG.md for ${{ steps.previoustag.outputs.tag }} [skip ci]'
+        file_pattern: CHANGELOG.md
 
     # Setup .npmrc file to publish to GitHub Packages
     - uses: actions/setup-node@v1
