@@ -19,7 +19,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
       with:
-        commit-message: ci: bumps version to {{version}} [skip ci]'
+        commit-message: 'ci: bumps version to {{version}} [skip ci]'
 
     - name: 'Get Previous tag'
       id: previoustag
